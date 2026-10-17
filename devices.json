@@ -152,8 +152,8 @@
   {
    "id": 13,
    "name": "Bosch DCNM-IDESK Interpreter Unit",
-   "desc": "",
-   "desc_tr": "",
+   "desc": "Single-user DICENTIS interpreter desk with a high-contrast 7-inch display. Supports up to 100 languages and up to ten desks per booth; fully compliant with ISO 20109. Connects with system cable or Cat5e + PoE+ switch (RJ45).",
+   "desc_tr": "Tek kişilik DICENTIS tercüman masası, 7 inç yüksek kontrastlı ekranlı. 100 dile kadar destekler, bir kabine en fazla 10 masa bağlanır; ISO 20109 ile tam uyumlu. Sistem kablosu ya da Cat5e + PoE+ switch ile (RJ45) bağlanır.",
    "img": [
     "img/d13.webp"
    ],
@@ -274,8 +274,8 @@
   {
    "id": 23,
    "name": "Bosch DCN-IDESK Interpreter Unit",
-   "desc": "",
-   "desc_tr": "",
+   "desc": "Interpreter desk of the DCN Next Generation system. It can work together with DICENTIS through the OMNEO Media Interface (PRS-4OMI4).",
+   "desc_tr": "DCN Next Generation sisteminin tercüman masası. DICENTIS sistemiyle OMNEO Media Interface (PRS-4OMI4) üzerinden birlikte çalışabilir.",
    "img": [
     "img/d23.webp"
    ],
@@ -287,8 +287,8 @@
   {
    "id": 24,
    "name": "Bosch INT-TX08 Transmitter",
-   "desc": "Transmits radio frequency signals to the radiator, up to 8 voice channels (wireless).",
-   "desc_tr": "Radyatöre radyo frekansı sinyali gönderir, en fazla 8 ses kanalı (kablosuz).",
+   "desc": "Central element of the Integrus system: modulates up to 8 language channels onto carrier waves and sends them to the infrared radiators in the room.",
+   "desc_tr": "Integrus sisteminin merkezi: 8 dil kanalına kadar sesi taşıyıcı dalgalara bindirip salondaki kızılötesi radyatörlere gönderir.",
    "img": [
     "img/d24a.webp",
     "img/d24b.webp"
@@ -301,8 +301,8 @@
   {
    "id": 25,
    "name": "Bosch INT-TXO Transmitter",
-   "desc": "Transmits radio frequency signals to the radiator using OMNEO (network system).",
-   "desc_tr": "Radyatöre OMNEO (ağ sistemi) üzerinden radyo frekansı sinyali gönderir.",
+   "desc": "Integrus transmitter that works with DICENTIS (OMNEO): modulates the signals and sends them to the infrared radiators in the room. Accepts DICENTIS and Dante sources; 4 channels out of the box, up to 31 languages + floor with licenses.",
+   "desc_tr": "DICENTIS (OMNEO) ile çalışan Integrus vericisi: sinyalleri salondaki kızılötesi radyatörlere gönderir. DICENTIS ve Dante kaynaklarını kabul eder; kutudan 4 kanal çıkar, lisansla 31 dil + salon kanalına çıkar.",
    "img": [
     "img/d25.webp"
    ],
@@ -378,8 +378,8 @@
   {
    "id": 31,
    "name": "Bosch DCNM-PS2",
-   "desc": "",
-   "desc_tr": "",
+   "desc": "Powering switch: used together with the DCNM-APS2 to supply extra power to the DICENTIS network. Built-in Ethernet switch, supports loop-through cabling with cable redundancy. No user controls, fully controlled remotely.",
+   "desc_tr": "Güç anahtarı: DCNM-APS2 ile birlikte DICENTIS ağına ek güç sağlar. Dahili Ethernet switch'i var, döngü (loop-through) kablolamayla kablo yedekliliği sağlar. Üzerinde kullanıcı kontrolü yoktur, tamamen uzaktan yönetilir.",
    "img": [
     "img/d31.webp"
    ],
@@ -427,8 +427,8 @@
   {
    "id": 35,
    "name": "Bosch DCN-CCU",
-   "desc": "Central control unit.",
-   "desc_tr": "Merkezi kontrol ünitesi.",
+   "desc": "Central control unit of the DCN system: manages delegate microphones, distributes simultaneous interpretation (up to 31 language channels + floor) and runs voting sessions without an operator. If the control PC fails, it falls back to stand-alone mode so the conference can continue.",
+   "desc_tr": "DCN sisteminin merkezi kontrol ünitesi: delege mikrofonlarını yönetir, simultane tercümeyi dağıtır (31 dil kanalı + salon kanalı) ve operatör olmadan oylama yaptırır. Kontrol bilgisayarı çökerse kendi başına çalışma moduna geçer, konferans devam eder.",
    "img": [
     "img/d35a.webp",
     "img/d35b.webp"
@@ -440,8 +440,8 @@
   {
    "id": 36,
    "name": "Bosch LBB4512/00 IR Radiator",
-   "desc": "",
-   "desc_tr": "",
+   "desc": "Integrus infrared radiator: broadcasts the language channels coming from the INT-TX transmitter into the room as infrared light.",
+   "desc_tr": "Integrus kızılötesi radyatör: INT-TX vericisinden gelen dil kanallarını salona kızılötesi ışık olarak yayar.",
    "img": [
     "img/d36.webp"
    ],
@@ -478,8 +478,8 @@
   {
    "id": 39,
    "name": "Bosch LBB4540/32 IR Receiver",
-   "desc": "",
-   "desc_tr": "",
+   "desc": "Integrus pocket receiver (32 channels): picks up the infrared signal from the radiators; the delegate selects a language channel and listens on headphones.",
+   "desc_tr": "Integrus cep alıcısı (32 kanal): radyatörlerden gelen kızılötesi sinyali alır; delege dil kanalını seçip kulaklıkla dinler.",
    "img": [
     "img/d39.webp"
    ],
