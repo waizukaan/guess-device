@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cihaz Tahmin</title>
+<meta name="description" content="COP31 ekipmanlarını fotoğraftan tanıma alıştırması.">
+<meta name="theme-color" content="#16181d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Cihaz Tahmin">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316181d'/%3E%3Crect x='12' y='22' width='40' height='22' rx='4' fill='none' stroke='%237cc4ff' stroke-width='4'/%3E%3Ccircle cx='22' cy='33' r='4' fill='%237cc4ff'/%3E%3Cpath d='M32 30h12M32 37h8' stroke='%237cc4ff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#16181d; --panel:#1f2229; --panel2:#272b34; --line:#343945;
+  --text:#e9ecf1; --muted:#9aa3b2; --accent:#7cc4ff; --accent-ink:#0d2236;
+  --ok:#3ecf8e; --ok-bg:rgba(62,207,142,.14); --bad:#ff6b6b; --bad-bg:rgba(255,107,107,.14);
+  --photo:#f4f5f7;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);
+  font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-tap-highlight-color:transparent}
+body{min-height:100vh;min-height:100dvh;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 40px}
+h1{font-size:28px;margin:8px 0 4px;letter-spacing:-.01em}
+.muted{color:var(--muted)}
+button{font:inherit;color:inherit;cursor:pointer;border:0}
+.hidden{display:none!important}
+
+/* start */
+.hero{padding:28px 0 8px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
+.label{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 10px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:var(--panel2);border:1px solid var(--line);padding:10px 18px;border-radius:999px;font-weight:600}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.primary{background:var(--accent);color:var(--accent-ink);font-weight:700;padding:14px 22px;border-radius:12px;width:100%;margin-top:20px;font-size:17px}
+.primary:active{transform:translateY(1px)}
+.secondary{background:var(--panel2);border:1px solid var(--line);font-weight:600;padding:13px 20px;border-radius:12px;width:100%}
+.foot{font-size:13px;color:var(--muted);margin-top:18px}
+
+/* game */
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.quit{background:none;color:var(--muted);padding:6px 0;font-size:14px}
+.stat{font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px}
+.stat b{color:var(--text)}
+.bar{height:4px;background:var(--panel2);border-radius:4px;overflow:hidden;margin-bottom:16px}
+.bar>i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.photo{background:var(--photo);border-radius:16px;height:clamp(220px,42vh,400px);display:flex;gap:10px;
+  align-items:center;justify-content:center;padding:14px;overflow:hidden}
+.photo img{max-width:100%;max-height:100%;min-width:0;object-fit:contain;flex:1 1 0}
+.q{margin:18px 0 10px;font-weight:600;font-size:18px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:14px;text-align:left;
+  display:flex;gap:10px;align-items:flex-start;min-height:62px;transition:border-color .15s,background .15s}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt .k{flex:none;width:22px;height:22px;border-radius:6px;background:var(--panel2);color:var(--muted);
+  font-size:12px;font-weight:700;display:grid;place-items:center;margin-top:1px}
+.opt:disabled{cursor:default}
+.opt.ok{border-color:var(--ok);background:var(--ok-bg)}
+.opt.bad{border-color:var(--bad);background:var(--bad-bg)}
+.opt.dim{opacity:.45}
+.fb{margin-top:14px;border-radius:14px;padding:16px;border:1px solid var(--line);background:var(--panel)}
+.fb .v{font-weight:700;margin-bottom:4px}
+.fb.ok .v{color:var(--ok)} .fb.bad .v{color:var(--bad)}
+.fb .n{font-weight:600}
+.desc{white-space:pre-line;color:var(--muted);margin-top:6px;font-size:15px}
+.next{margin-top:14px}
+.hint{font-size:12px;color:var(--muted);text-align:center;margin-top:10px}
+
+/* lang toggle */
+.seg{display:inline-flex;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:3px}
+.seg button{background:none;padding:6px 12px;border-radius:7px;font-size:14px;font-weight:600;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:18px}
+.row .label{margin:0}
+
+/* study */
+.study-head{position:sticky;top:0;background:var(--bg);padding:12px 0;z-index:2;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.study-head .quit{margin-right:auto}
+.search{width:100%;background:var(--panel);border:1px solid var(--line);color:var(--text);font:inherit;
+  padding:12px 14px;border-radius:12px;margin-bottom:14px;outline:none}
+.search:focus{border-color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.dev{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.dev .ph{background:var(--photo);height:170px;display:flex;gap:6px;align-items:center;justify-content:center;padding:10px}
+.dev .ph img{max-width:100%;max-height:100%;min-width:0;object-fit:contain;flex:1 1 0}
+.dev .bd{padding:12px 14px 14px}
+.dev .n{font-weight:700}
+.dev .desc{font-size:14px}
+.empty{color:var(--muted);padding:20px 0}
+
+/* end */
+.score{font-size:56px;font-weight:800;letter-spacing:-.02em;line-height:1;margin:10px 0 4px;font-variant-numeric:tabular-nums}
+.btns{display:grid;gap:10px;margin-top:20px}
+.btns .primary{margin-top:0}
+h2{font-size:20px;margin:32px 0 12px}
+.miss{display:flex;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px}
+.miss .th{flex:none;width:112px;height:96px;background:var(--photo);border-radius:10px;display:flex;align-items:center;justify-content:center;padding:6px}
+.miss .th img{max-width:100%;max-height:100%;object-fit:contain}
+.miss .n{font-weight:700}
+.miss .yours{font-size:14px;color:var(--bad);margin-top:2px}
+.miss .desc{font-size:14px}
+.perfect{background:var(--ok-bg);border:1px solid var(--ok);border-radius:14px;padding:16px;margin-top:24px}
+
+@media (max-width:560px){
+  .grid{grid-template-columns:1fr}
+  .dev .ph{height:200px}
+  .opts{grid-template-columns:1fr}
+  .opt{min-height:0;padding:13px}
+  .hint{display:none}
+  .miss .th{width:84px;height:76px}
+  h1{font-size:24px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section id="start">
+    <div class="hero">
+      <h1>Bu cihaz ne?</h1>
+      <p class="muted">Fotoğraftaki cihazı dört şıktan bul. Önce “Cihazlara çalış” bölümünden hepsine göz atabilir, sonra kendini test edebilirsin. Testin sonunda bilemediklerinin listesi çıkar.</p>
+    </div>
+    <div class="card">
+      <p class="label">Soru sayısı</p>
+      <div class="chips" id="counts"></div>
+      <div class="row">
+        <p class="label">Açıklama dili</p>
+        <div class="seg lang"></div>
+      </div>
+      <button class="primary" id="go">Teste başla</button>
+      <button class="secondary" id="studyBtn" style="margin-top:10px">Cihazlara çalış</button>
+    </div>
+    <p class="foot" id="total"></p>
+  </section>
+
+  <section id="study" class="hidden">
+    <div class="study-head">
+      <button class="quit" id="studyBack">← Geri</button>
+      <div class="seg lang"></div>
+    </div>
+    <input class="search" id="q" type="search" placeholder="Cihaz ara…" autocomplete="off">
+    <div class="grid" id="grid"></div>
+    <button class="primary" id="studyGo" style="margin-top:24px">Teste başla</button>
+  </section>
+
+  <section id="game" class="hidden">
+    <div class="top">
+      <button class="quit" id="quit">← Çık</button>
+      <div class="stat"><b id="qn">1</b> / <span id="qt">10</span> · Doğru <b id="sc">0</b></div>
+    </div>
+    <div class="bar"><i id="prog"></i></div>
+    <div class="photo" id="photo"></div>
+    <div class="q">Bu cihaz hangisi?</div>
+    <div class="opts" id="opts"></div>
+    <div id="fb" class="fb hidden"></div>
+    <button class="primary next hidden" id="next">Sonraki →</button>
+    <p class="hint">Klavye: 1–4 ile seç, Enter ile devam et</p>
+  </section>
+
+  <section id="end" class="hidden">
+    <div class="hero">
+      <p class="label">Sonuç</p>
+      <div class="score" id="final"></div>
+      <p class="muted" id="msg"></p>
+    </div>
+    <div class="btns">
+      <button class="primary" id="again">Yeni oyun</button>
+      <button class="secondary" id="endStudy">Cihazlara çalış</button>
+    </div>
+    <div id="missWrap"></div>
+  </section>
+
+</div>
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  let lang = 'tr';
+  try { lang = localStorage.getItem('gd-lang') || 'tr'; } catch (e) {}
+  let DEV = [], count = 10, qs = [], i = 0, score = 0, missed = [], answered = false, cur = null;
+
+  const shuffle = a => { a = a.slice(); for (let k = a.length - 1; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [a[k], a[j]] = [a[j], a[k]]; } return a; };
+  const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const show = id => ['start','study','game','end'].forEach(s => $(s).classList.toggle('hidden', s !== id));
+
+  // Şıklar: önce birbirine benzeyen cihazlar (aynı grup), en çok ortak grubu olanlar öne; eksik kalırsa rastgele.
+  function optionsFor(d) {
+    const others = DEV.filter(x => x.id !== d.id);
+    const overlap = x => x.groups.filter(g => d.groups.includes(g)).length;
+    const similar = shuffle(others.filter(x => overlap(x) > 0)).sort((a, b) => overlap(b) - overlap(a));
+    const pick = similar.slice(0, 3);
+    for (const x of shuffle(others)) { if (pick.length >= 3) break; if (!pick.includes(x)) pick.push(x); }
+    return shuffle([d, ...pick]);
+  }
+
+  const descOf = d => (lang === 'tr' ? d.desc_tr : d.desc) || '';
+  function renderLang() {
+    document.querySelectorAll('.seg.lang').forEach(el => {
+      el.innerHTML = [['tr','Türkçe'],['en','English']].map(([v, t]) =>
+        `<button data-v="${v}" aria-pressed="${v === lang}">${t}</button>`).join('');
+      el.querySelectorAll('button').forEach(b => b.onclick = () => {
+        lang = b.dataset.v; try { localStorage.setItem('gd-lang', lang); } catch (e) {}
+        renderLang(); if (!$('study').classList.contains('hidden')) renderStudy();
+      });
+    });
+  }
+  function openStudy() { $('q').value = ''; renderStudy(); show('study'); window.scrollTo({ top: 0 }); }
+  function renderStudy() {
+    const t = $('q').value.trim().toLocaleLowerCase('tr');
+    const list = DEV.filter(d => !t || (d.name + ' ' + d.desc + ' ' + d.desc_tr).toLocaleLowerCase('tr').includes(t));
+    $('grid').innerHTML = list.length ? list.map(d => `
+      <div class="dev">
+        <div class="ph">${d.img.map(s => `<img src="${s}" alt="" loading="lazy">`).join('')}</div>
+        <div class="bd"><div class="n">${esc(d.name)}</div>${descOf(d) ? `<div class="desc">${esc(descOf(d))}</div>` : ''}</div>
+      </div>`).join('') : `<div class="empty">Eşleşen cihaz yok.</div>`;
+  }
+
+  function renderCounts() {
+    const n = DEV.length, opts = [10, 20, n].filter((v, k, a) => v <= n && a.indexOf(v) === k);
+    $('counts').innerHTML = opts.map(v =>
+      `<button class="chip" data-v="${v}" aria-pressed="${v === count}">${v === n ? `Tümü (${n})` : v}</button>`).join('');
+    $('counts').querySelectorAll('.chip').forEach(b => b.onclick = () => { count = +b.dataset.v; renderCounts(); });
+  }
+
+  function start(list) {
+    qs = list; i = 0; score = 0; missed = [];
+    $('qt').textContent = qs.length;
+    show('game'); ask();
+  }
+
+  function ask() {
+    answered = false; cur = qs[i];
+    $('qn').textContent = i + 1; $('sc').textContent = score;
+    $('prog').style.width = (i / qs.length * 100) + '%';
+    $('photo').innerHTML = cur.img.map(s => `<img src="${s}" alt="">`).join('');
+    cur.opts = optionsFor(cur);
+    $('opts').innerHTML = cur.opts.map((o, k) =>
+      `<button class="opt" data-k="${k}"><span class="k">${k + 1}</span><span>${esc(o.name)}</span></button>`).join('');
+    $('opts').querySelectorAll('.opt').forEach(b => b.onclick = () => answer(+b.dataset.k));
+    $('fb').className = 'fb hidden'; $('next').classList.add('hidden');
+    const nx = qs[i + 1]; if (nx) nx.img.forEach(s => { const im = new Image(); im.src = s; });
+  }
+
+  function answer(k) {
+    if (answered) return; answered = true;
+    const chosen = cur.opts[k], right = chosen.id === cur.id;
+    $('opts').querySelectorAll('.opt').forEach((b, j) => {
+      b.disabled = true;
+      const o = cur.opts[j];
+      if (o.id === cur.id) b.classList.add('ok'); else if (j === k) b.classList.add('bad'); else b.classList.add('dim');
+    });
+    if (right) score++; else missed.push({ d: cur, yours: chosen.name });
+    $('sc').textContent = score;
+    const fb = $('fb');
+    fb.className = 'fb ' + (right ? 'ok' : 'bad');
+    fb.innerHTML = `<div class="v">${right ? 'Doğru!' : 'Yanlış'}</div>
+      <div class="n">${esc(cur.name)}</div>
+      ${descOf(cur) ? `<div class="desc">${esc(descOf(cur))}</div>` : ''}`;
+    $('next').textContent = i + 1 < qs.length ? 'Sonraki →' : 'Sonucu gör →';
+    $('next').classList.remove('hidden');
+    $('next').focus({ preventScroll: true });
+    fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function next() { i++; if (i < qs.length) { ask(); window.scrollTo({ top: 0 }); } else finish(); }
+
+  function finish() {
+    const n = qs.length, pct = Math.round(score / n * 100);
+    $('final').textContent = `${score} / ${n}`;
+    $('msg').textContent = pct === 100 ? 'Kusursuz. Hepsini bildin.'
+      : pct >= 80 ? `%${pct} — çok iyi, birkaç eksik kaldı.`
+      : pct >= 50 ? `%${pct} — fena değil, aşağıdakilere bir göz at.`
+      : `%${pct} — aşağıdaki cihazları çalışıp tekrar dene.`;
+    $('missWrap').innerHTML = missed.length === 0
+      ? `<div class="perfect">Bilemediğin cihaz yok.</div>`
+      : `<h2>Bilemediklerin (${missed.length})</h2>` + missed.map(m => `
+        <div class="miss">
+          <div class="th"><img src="${m.d.img[0]}" alt=""></div>
+          <div>
+            <div class="n">${esc(m.d.name)}</div>
+            ${descOf(m.d) ? `<div class="desc">${esc(descOf(m.d))}</div>` : ''}
+          </div>
+        </div>`).join('');
+    show('end'); window.scrollTo({ top: 0 });
+  }
+
+  $('go').onclick = () => start(shuffle(DEV).slice(0, count));
+  $('next').onclick = next;
+  $('studyBtn').onclick = $('endStudy').onclick = openStudy;
+  $('studyBack').onclick = () => { show('start'); window.scrollTo({ top: 0 }); };
+  $('studyGo').onclick = () => start(shuffle(DEV).slice(0, count));
+  $('q').oninput = renderStudy;
+  $('again').onclick = () => { show('start'); window.scrollTo({ top: 0 }); };
+  $('quit').onclick = () => show('start');
+
+  document.addEventListener('keydown', e => {
+    if ($('game').classList.contains('hidden')) return;
+    if (!answered && /^[1-4]$/.test(e.key)) answer(+e.key - 1);
+    else if (answered && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); next(); }
+  });
+
+  fetch('devices.json').then(r => r.json()).then(j => {
+    DEV = j.devices;
+    $('total').textContent = `${DEV.length} cihaz · COP31 Devices destesinden`;
+    renderCounts(); renderLang();
+  }).catch(() => { $('total').textContent = 'Cihaz listesi yüklenemedi. Sayfayı yenile.'; });
+})();
+</script>
+</body>
+</html>

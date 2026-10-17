@@ -1,0 +1,543 @@
+{
+ "devices": [
+  {
+   "id": 1,
+   "name": "Midas M32 Live",
+   "desc": "Purpose: Audio processing, forwarding and gathering from various sources.",
+   "desc_tr": "Amaç: Farklı kaynaklardan gelen sesi toplamak, işlemek ve yönlendirmek.",
+   "img": [
+    "img/d01.webp"
+   ],
+   "groups": [
+    "mixer"
+   ]
+  },
+  {
+   "id": 2,
+   "name": "AV Operations Manager iPad",
+   "desc": "",
+   "desc_tr": "",
+   "img": [
+    "img/d02.webp"
+   ],
+   "groups": [
+    "control"
+   ]
+  },
+  {
+   "id": 3,
+   "name": "Dante Network Controller",
+   "desc": "Manages the Dante network traffic.",
+   "desc_tr": "Dante ağ trafiğini yönetir.",
+   "img": [
+    "img/d03a.webp",
+    "img/d03b.webp"
+   ],
+   "groups": [
+    "network",
+    "rack"
+   ]
+  },
+  {
+   "id": 4,
+   "name": "Shure Wireless Microphone Set",
+   "desc": "Transmitter and receiver set.",
+   "desc_tr": "Verici ve alıcı seti.",
+   "img": [
+    "img/d04.webp"
+   ],
+   "groups": [
+    "wireless"
+   ]
+  },
+  {
+   "id": 5,
+   "name": "Cuelight Presentation Controller",
+   "desc": "Used to control presentations.",
+   "desc_tr": "Sunumları kontrol etmek için kullanılır.",
+   "img": [
+    "img/d05.webp"
+   ],
+   "groups": [
+    "control"
+   ]
+  },
+  {
+   "id": 6,
+   "name": "Bosch DCNM-APS2",
+   "desc": "Audio processor and powering switch.\nPurpose: Main source of power and audio for the conference system. Feeds delegate units and forwards the system audio to the audio mixer, recording or broadcast.",
+   "desc_tr": "Ses işlemcisi ve güç anahtarı.\nAmaç: Konferans sisteminin ana güç ve ses kaynağı. Delege ünitelerini besler, sistem sesini ses mikserine, kayda veya yayına iletir.",
+   "img": [
+    "img/d06.webp"
+   ],
+   "groups": [
+    "rack"
+   ]
+  },
+  {
+   "id": 7,
+   "name": "Pixelhue P80",
+   "desc": "Processes video and acts as a visual mixer.",
+   "desc_tr": "Videoyu işler ve görüntü mikseri olarak çalışır.",
+   "img": [
+    "img/d07.webp"
+   ],
+   "groups": [
+    "video",
+    "mixer"
+   ]
+  },
+  {
+   "id": 8,
+   "name": "Fiber Extender 4K30 KVM",
+   "desc": "Turns input from different mediums (USB, HDMI, DP, audio...) into network packets, allowing near-instant transmission over fiber cables.",
+   "desc_tr": "Farklı kaynaklardan gelen girişleri (USB, HDMI, DP, ses...) ağ paketlerine dönüştürür; fiber kabloyla neredeyse anlık iletim sağlar.",
+   "img": [
+    "img/d08.webp"
+   ],
+   "groups": [
+    "video",
+    "extender"
+   ]
+  },
+  {
+   "id": 9,
+   "name": "Avonic AV-CON-IP",
+   "desc": "Purpose: Controlling the Avonic PTZ cameras and saving positions as presets. Those presets are then assigned to the DCNM microphone units on the floor.",
+   "desc_tr": "Amaç: Avonic PTZ kameraları kontrol etmek ve kamera konumlarını preset olarak kaydetmek. Bu presetler daha sonra salondaki DCNM mikrofon ünitelerine atanır.",
+   "img": [
+    "img/d09.webp"
+   ],
+   "groups": [
+    "control",
+    "camera"
+   ]
+  },
+  {
+   "id": 10,
+   "name": "Avonic PTZ Camera",
+   "desc": "",
+   "desc_tr": "",
+   "img": [
+    "img/d10.webp"
+   ],
+   "groups": [
+    "camera"
+   ]
+  },
+  {
+   "id": 11,
+   "name": "Bosch DCNM Delegate Unit",
+   "desc": "",
+   "desc_tr": "",
+   "img": [
+    "img/d11.webp"
+   ],
+   "groups": [
+    "delegate"
+   ]
+  },
+  {
+   "id": 12,
+   "name": "Bosch DCNM Chairman Unit",
+   "desc": "",
+   "desc_tr": "",
+   "img": [
+    "img/d12.webp"
+   ],
+   "groups": [
+    "delegate"
+   ]
+  },
+  {
+   "id": 13,
+   "name": "Bosch DCNM-IDESK Interpreter Unit",
+   "desc": "",
+   "desc_tr": "",
+   "img": [
+    "img/d13.webp"
+   ],
+   "groups": [
+    "delegate",
+    "interp"
+   ]
+  },
+  {
+   "id": 14,
+   "name": "Cat6 Ethernet Cable",
+   "desc": "Transfers network packets over distance at 1 Gbps bandwidth. Used on every device that communicates over the network.",
+   "desc_tr": "Ağ paketlerini 1 Gbps bant genişliğiyle uzak mesafelere taşır. Ağ üzerinden haberleşen her cihazda kullanılır.",
+   "img": [
+    "img/d14.webp"
+   ],
+   "groups": [
+    "cable"
+   ]
+  },
+  {
+   "id": 15,
+   "name": "XLR Cable",
+   "desc": "Audio cable.",
+   "desc_tr": "Ses kablosu.",
+   "img": [
+    "img/d15.webp"
+   ],
+   "groups": [
+    "cable"
+   ]
+  },
+  {
+   "id": 16,
+   "name": "SDI Cable",
+   "desc": "High-quality uncompressed video transmission.",
+   "desc_tr": "Yüksek kaliteli, sıkıştırılmamış video iletimi.",
+   "img": [
+    "img/d16.webp"
+   ],
+   "groups": [
+    "cable"
+   ]
+  },
+  {
+   "id": 17,
+   "name": "3.5mm Jack Cable",
+   "desc": "Audio transmission.",
+   "desc_tr": "Ses iletimi.",
+   "img": [
+    "img/d17.webp"
+   ],
+   "groups": [
+    "cable"
+   ]
+  },
+  {
+   "id": 18,
+   "name": "Micro Jack Adapter",
+   "desc": "",
+   "desc_tr": "",
+   "img": [
+    "img/d18.webp"
+   ],
+   "groups": [
+    "cable"
+   ]
+  },
+  {
+   "id": 19,
+   "name": "HDMI Cable",
+   "desc": "Audio and video transmission.",
+   "desc_tr": "Ses ve görüntü iletimi.",
+   "img": [
+    "img/d19.webp"
+   ],
+   "groups": [
+    "cable"
+   ]
+  },
+  {
+   "id": 20,
+   "name": "DisplayPort Cable",
+   "desc": "Audio and video transmission.",
+   "desc_tr": "Ses ve görüntü iletimi.",
+   "img": [
+    "img/d20.webp"
+   ],
+   "groups": [
+    "cable"
+   ]
+  },
+  {
+   "id": 21,
+   "name": "DTECH Premium 4K HDMI Splitter 1x4",
+   "desc": "Purpose: Splits the video output of one device into 4 different ports.",
+   "desc_tr": "Amaç: Bir cihazın görüntü çıkışını 4 ayrı porta böler.",
+   "img": [
+    "img/d21.webp"
+   ],
+   "groups": [
+    "video",
+    "switch"
+   ]
+  },
+  {
+   "id": 22,
+   "name": "Shure Antenna Set",
+   "desc": "Manages RF signals, prevents dropouts in wireless microphones and enhances signal quality.",
+   "desc_tr": "RF sinyallerini yönetir, kablosuz mikrofonlarda kopmaları önler ve sinyal kalitesini artırır.",
+   "img": [
+    "img/d22.webp"
+   ],
+   "groups": [
+    "wireless"
+   ]
+  },
+  {
+   "id": 23,
+   "name": "Bosch DCN-IDESK Interpreter Unit",
+   "desc": "",
+   "desc_tr": "",
+   "img": [
+    "img/d23.webp"
+   ],
+   "groups": [
+    "delegate",
+    "interp"
+   ]
+  },
+  {
+   "id": 24,
+   "name": "Bosch INT-TX08 Transmitter",
+   "desc": "Transmits radio frequency signals to the radiator, up to 8 voice channels (wireless).",
+   "desc_tr": "Radyatöre radyo frekansı sinyali gönderir, en fazla 8 ses kanalı (kablosuz).",
+   "img": [
+    "img/d24a.webp",
+    "img/d24b.webp"
+   ],
+   "groups": [
+    "rack",
+    "interp"
+   ]
+  },
+  {
+   "id": 25,
+   "name": "Bosch INT-TXO Transmitter",
+   "desc": "Transmits radio frequency signals to the radiator using OMNEO (network system).",
+   "desc_tr": "Radyatöre OMNEO (ağ sistemi) üzerinden radyo frekansı sinyali gönderir.",
+   "img": [
+    "img/d25.webp"
+   ],
+   "groups": [
+    "rack",
+    "interp"
+   ]
+  },
+  {
+   "id": 26,
+   "name": "DSAN PerfectCue",
+   "desc": "Purpose: Controlling the presentation.",
+   "desc_tr": "Amaç: Sunumu kontrol etmek.",
+   "img": [
+    "img/d26.webp"
+   ],
+   "groups": [
+    "control"
+   ]
+  },
+  {
+   "id": 27,
+   "name": "D-Link DGS-108 8-Port Gigabit Switch",
+   "desc": "Purpose: Managing intranet (closed network) traffic via MAC addresses.",
+   "desc_tr": "Amaç: İç ağ (kapalı ağ) trafiğini MAC adresleri üzerinden yönetmek.",
+   "img": [
+    "img/d27.webp"
+   ],
+   "groups": [
+    "network"
+   ]
+  },
+  {
+   "id": 28,
+   "name": "8x8 HDMI Matrix Switcher",
+   "desc": "With preset and PiP (picture in picture) function.",
+   "desc_tr": "Preset ve PiP (resim içinde resim) özellikli.",
+   "img": [
+    "img/d28.webp"
+   ],
+   "groups": [
+    "video",
+    "switch",
+    "rack"
+   ]
+  },
+  {
+   "id": 29,
+   "name": "Blackmagic ATEM 1 M/E",
+   "desc": "",
+   "desc_tr": "",
+   "img": [
+    "img/d29.webp"
+   ],
+   "groups": [
+    "video",
+    "mixer",
+    "rack"
+   ]
+  },
+  {
+   "id": 30,
+   "name": "Bosch DCN-DISDCS-D Delegate Unit",
+   "desc": "",
+   "desc_tr": "",
+   "img": [
+    "img/d30.webp"
+   ],
+   "groups": [
+    "delegate"
+   ]
+  },
+  {
+   "id": 31,
+   "name": "Bosch DCNM-PS2",
+   "desc": "",
+   "desc_tr": "",
+   "img": [
+    "img/d31.webp"
+   ],
+   "groups": [
+    "rack"
+   ]
+  },
+  {
+   "id": 32,
+   "name": "HDMI-FO Extender Set",
+   "desc": "",
+   "desc_tr": "",
+   "img": [
+    "img/d32.webp"
+   ],
+   "groups": [
+    "video",
+    "extender"
+   ]
+  },
+  {
+   "id": 33,
+   "name": "Electro-Voice Evolve 50 Speaker",
+   "desc": "",
+   "desc_tr": "",
+   "img": [
+    "img/d33.webp"
+   ],
+   "groups": [
+    "audio"
+   ]
+  },
+  {
+   "id": 34,
+   "name": "grandMA2 Lighting Console",
+   "desc": "",
+   "desc_tr": "",
+   "img": [
+    "img/d34.webp"
+   ],
+   "groups": [
+    "mixer"
+   ]
+  },
+  {
+   "id": 35,
+   "name": "Bosch DCN-CCU",
+   "desc": "Central control unit.",
+   "desc_tr": "Merkezi kontrol ünitesi.",
+   "img": [
+    "img/d35a.webp",
+    "img/d35b.webp"
+   ],
+   "groups": [
+    "rack"
+   ]
+  },
+  {
+   "id": 36,
+   "name": "Bosch LBB4512/00 IR Radiator",
+   "desc": "",
+   "desc_tr": "",
+   "img": [
+    "img/d36.webp"
+   ],
+   "groups": [
+    "interp",
+    "wireless"
+   ]
+  },
+  {
+   "id": 37,
+   "name": "Midas M32R",
+   "desc": "",
+   "desc_tr": "",
+   "img": [
+    "img/d37.webp"
+   ],
+   "groups": [
+    "mixer"
+   ]
+  },
+  {
+   "id": 38,
+   "name": "Bosch HDP-LW Headphones",
+   "desc": "",
+   "desc_tr": "",
+   "img": [
+    "img/d38.webp"
+   ],
+   "groups": [
+    "interp",
+    "audio"
+   ]
+  },
+  {
+   "id": 39,
+   "name": "Bosch LBB4540/32 IR Receiver",
+   "desc": "",
+   "desc_tr": "",
+   "img": [
+    "img/d39.webp"
+   ],
+   "groups": [
+    "interp",
+    "wireless"
+   ]
+  },
+  {
+   "id": 40,
+   "name": "Cisco Catalyst 1300 Switch (24-port)",
+   "desc": "",
+   "desc_tr": "",
+   "img": [
+    "img/d40.webp"
+   ],
+   "groups": [
+    "network",
+    "rack"
+   ]
+  },
+  {
+   "id": 41,
+   "name": "NovaStar VX1000 LED Display Controller",
+   "desc": "",
+   "desc_tr": "",
+   "img": [
+    "img/d41.webp"
+   ],
+   "groups": [
+    "video",
+    "rack"
+   ]
+  },
+  {
+   "id": 42,
+   "name": "Cisco Catalyst C1300 Switch (8-port PoE)",
+   "desc": "",
+   "desc_tr": "",
+   "img": [
+    "img/d42.webp"
+   ],
+   "groups": [
+    "network"
+   ]
+  },
+  {
+   "id": 43,
+   "name": "Bosch OMN-DANTEGTW",
+   "desc": "Function: Bridges Dante and OMNEO networks into one Dante interface.\nStream capacity: 64 streams bidirectional (Dante ↔ OMNEO).",
+   "desc_tr": "İşlev: Dante ve OMNEO ağlarını tek bir Dante arayüzünde birleştirir.\nAkış kapasitesi: İki yönlü 64 akış (Dante ↔ OMNEO).",
+   "img": [
+    "img/d43.webp"
+   ],
+   "groups": [
+    "network",
+    "rack"
+   ]
+  }
+ ]
+}
