@@ -92,6 +92,8 @@ button{font:inherit;color:inherit;cursor:pointer;border:0}
 
 /* end */
 .score{font-size:56px;font-weight:800;letter-spacing:-.02em;line-height:1;margin:10px 0 4px;font-variant-numeric:tabular-nums}
+.time{font-size:18px;font-weight:600;margin:10px 0 4px;font-variant-numeric:tabular-nums}
+.time span{color:var(--muted);font-weight:400;font-size:15px}
 .btns{display:grid;gap:10px;margin-top:20px}
 .btns .primary{margin-top:0}
 h2{font-size:20px;margin:32px 0 12px}
@@ -148,7 +150,7 @@ h2{font-size:20px;margin:32px 0 12px}
   <section id="game" class="hidden">
     <div class="top">
       <button class="quit" id="quit">← Çık</button>
-      <div class="stat"><b id="qn">1</b> / <span id="qt">10</span> · Doğru <b id="sc">0</b></div>
+      <div class="stat"><b id="qn">1</b> / <span id="qt">10</span> · Doğru <b id="sc">0</b> · ⏱ <b id="tm">0,0</b></div>
     </div>
     <div class="bar"><i id="prog"></i></div>
     <div class="photo" id="photo"></div>
@@ -163,6 +165,7 @@ h2{font-size:20px;margin:32px 0 12px}
     <div class="hero">
       <p class="label">Sonuç</p>
       <div class="score" id="final"></div>
+      <p class="time" id="ftime"></p>
       <p class="muted" id="msg"></p>
     </div>
     <div class="btns">
@@ -176,6 +179,19 @@ h2{font-size:20px;margin:32px 0 12px}
 <script>
 (() => {
   const $ = id => document.getElementById(id);
+  // Süre: yalnızca soru ekrandayken işler; cevaptan sonra (açıklama okunurken) durur.
+  let elapsed = 0, runFrom = null, tick = null;
+  const now = () => performance.now();
+  const total = () => elapsed + (runFrom !== null ? now() - runFrom : 0);
+  const fmt = ms => { const t = ms / 1000; if (t < 60) return t.toFixed(1).replace('.', ',') + ' sn';
+    const m = Math.floor(t / 60), sec = Math.floor(t % 60); return `${m} dk ${String(sec).padStart(2, '0')} sn`; };
+  const fmtLive = ms => { const t = ms / 1000; return t < 60 ? t.toFixed(1).replace('.', ',')
+    : `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, '0')}`; };
+  const draw = () => { $('tm').textContent = fmtLive(total()); };
+  const resume = () => { if (runFrom === null) runFrom = now(); clearInterval(tick); tick = setInterval(draw, 100); draw(); };
+  const pause = () => { if (runFrom !== null) { elapsed += now() - runFrom; runFrom = null; } clearInterval(tick); draw(); };
+  const resetTimer = () => { clearInterval(tick); elapsed = 0; runFrom = null; draw(); };
+
   let lang = 'tr';
   try { lang = localStorage.getItem('gd-lang') || 'tr'; } catch (e) {}
   let DEV = [], count = 10, qs = [], i = 0, score = 0, missed = [], answered = false, cur = null;
@@ -224,7 +240,7 @@ h2{font-size:20px;margin:32px 0 12px}
   }
 
   function start(list) {
-    qs = list; i = 0; score = 0; missed = [];
+    qs = list; i = 0; score = 0; missed = []; resetTimer();
     $('qt').textContent = qs.length;
     show('game'); ask();
   }
@@ -239,11 +255,12 @@ h2{font-size:20px;margin:32px 0 12px}
       `<button class="opt" data-k="${k}"><span class="k">${k + 1}</span><span>${esc(o.name)}</span></button>`).join('');
     $('opts').querySelectorAll('.opt').forEach(b => b.onclick = () => answer(+b.dataset.k));
     $('fb').className = 'fb hidden'; $('next').classList.add('hidden');
+    resume();
     const nx = qs[i + 1]; if (nx) nx.img.forEach(s => { const im = new Image(); im.src = s; });
   }
 
   function answer(k) {
-    if (answered) return; answered = true;
+    if (answered) return; answered = true; pause();
     const chosen = cur.opts[k], right = chosen.id === cur.id;
     $('opts').querySelectorAll('.opt').forEach((b, j) => {
       b.disabled = true;
@@ -268,6 +285,8 @@ h2{font-size:20px;margin:32px 0 12px}
   function finish() {
     const n = qs.length, pct = Math.round(score / n * 100);
     $('final').textContent = `${score} / ${n}`;
+    const ms = total();
+    $('ftime').innerHTML = `⏱ ${fmt(ms)} <span>· soru başına ortalama ${fmt(ms / n)}</span>`;
     $('msg').textContent = pct === 100 ? 'Kusursuz. Hepsini bildin.'
       : pct >= 80 ? `%${pct} — çok iyi, birkaç eksik kaldı.`
       : pct >= 50 ? `%${pct} — fena değil, aşağıdakilere bir göz at.`
@@ -292,7 +311,7 @@ h2{font-size:20px;margin:32px 0 12px}
   $('studyGo').onclick = () => start(shuffle(DEV).slice(0, count));
   $('q').oninput = renderStudy;
   $('again').onclick = () => { show('start'); window.scrollTo({ top: 0 }); };
-  $('quit').onclick = () => show('start');
+  $('quit').onclick = () => { pause(); show('start'); };
 
   document.addEventListener('keydown', e => {
     if ($('game').classList.contains('hidden')) return;
