@@ -15,8 +15,8 @@
   {
    "id": 2,
    "name": "AV Operations Manager iPad",
-   "desc": "",
-   "desc_tr": "",
+   "desc": "Tablet used by the AV operations manager during the event.",
+   "desc_tr": "Etkinlik sırasında AV operasyon yöneticisinin kullandığı tablet.",
    "img": [
     "img/d02.webp"
    ],
@@ -116,8 +116,8 @@
   {
    "id": 10,
    "name": "Avonic PTZ Camera",
-   "desc": "",
-   "desc_tr": "",
+   "desc": "Remote-controlled camera that can pan (left-right), tilt (up-down) and zoom. Controlled with the Avonic AV-CON-IP; saved presets turn it towards the active speaker.",
+   "desc_tr": "Uzaktan kontrol edilen kamera: sağa-sola döner (pan), yukarı-aşağı eğilir (tilt) ve zoom yapar. Avonic AV-CON-IP ile kontrol edilir; kayıtlı presetlerle konuşan kişiye döner.",
    "img": [
     "img/d10.webp"
    ],
@@ -128,8 +128,8 @@
   {
    "id": 11,
    "name": "Bosch DCNM Delegate Unit",
-   "desc": "",
-   "desc_tr": "",
+   "desc": "Wireless discussion device of the DICENTIS Wireless system. Participants use it to request to speak, talk and listen. Connects over Wi-Fi (2.4/5 GHz) and runs more than 24 hours on a removable battery.",
+   "desc_tr": "DICENTIS Wireless sisteminin kablosuz delege ünitesi. Katılımcı söz ister, konuşur ve dinler. Wi-Fi (2,4/5 GHz) ile bağlanır, çıkarılabilir bataryayla 24 saatten fazla çalışır.",
    "img": [
     "img/d11.webp"
    ],
@@ -140,8 +140,8 @@
   {
    "id": 12,
    "name": "Bosch DCNM Chairman Unit",
-   "desc": "",
-   "desc_tr": "",
+   "desc": "Extended DICENTIS wireless discussion device (DCNM-WDE) with a 4.3-inch touch screen and an NFC reader to identify participants. Configured as the chairperson unit through the access point's web interface; runs 20+ hours on battery.",
+   "desc_tr": "Gelişmiş DICENTIS kablosuz ünite (DCNM-WDE): 4,3 inç dokunmatik ekran ve katılımcıyı tanıyan NFC okuyucu. Erişim noktasının web arayüzünden başkan ünitesi olarak ayarlanır; bataryayla 20 saatten fazla çalışır.",
    "img": [
     "img/d12.webp"
    ],
@@ -213,8 +213,8 @@
   {
    "id": 18,
    "name": "Micro Jack Adapter",
-   "desc": "",
-   "desc_tr": "",
+   "desc": "Adapter between 6.35 mm (large) and 3.5 mm (mini) jack, used to plug a cable into a socket of the other size.",
+   "desc_tr": "6,35 mm (büyük) jak ile 3,5 mm (mini) jak arasında dönüştürücü; kabloyu farklı boyuttaki girişe takmak için kullanılır.",
    "img": [
     "img/d18.webp"
    ],
@@ -352,8 +352,8 @@
   {
    "id": 29,
    "name": "Blackmagic ATEM 1 M/E",
-   "desc": "",
-   "desc_tr": "",
+   "desc": "Live production video switcher: 10 3G-SDI inputs, 4 chroma keyers and a 16-view multiview. Compact 1U rack unit with a front control panel and LCD screen.",
+   "desc_tr": "Canlı yayın görüntü mikseri: 10 adet 3G-SDI giriş, 4 chroma keyer ve 16 görüntülü multiview. Önünde kontrol paneli ve LCD ekranı olan kompakt 1U rack cihazı.",
    "img": [
     "img/d29.webp"
    ],
@@ -366,8 +366,8 @@
   {
    "id": 30,
    "name": "Bosch DCN-DISDCS-D Delegate Unit",
-   "desc": "",
-   "desc_tr": "",
+   "desc": "Discussion unit of the DCN Next Generation system with a pluggable microphone and a dual channel selector, so two participants sharing the unit can listen to different language channels. The built-in loudspeaker mutes automatically when the microphone is on, preventing feedback.",
+   "desc_tr": "DCN Next Generation sisteminin delege ünitesi: takılabilir mikrofon ve çift kanal seçici sayesinde üniteyi paylaşan iki kişi farklı dil kanallarını dinleyebilir. Mikrofon açılınca dahili hoparlör otomatik susar, böylece feedback (geri besleme) olmaz.",
    "img": [
     "img/d30.webp"
    ],
@@ -390,8 +390,8 @@
   {
    "id": 32,
    "name": "HDMI-FO Extender Set",
-   "desc": "",
-   "desc_tr": "",
+   "desc": "Transmitter + receiver pair that carries an HDMI signal over fiber optic cable; used when the distance is too long for a normal HDMI cable.",
+   "desc_tr": "HDMI sinyalini fiber optik kablo üzerinden taşıyan verici + alıcı seti; mesafe normal HDMI kablosu için fazla uzun olduğunda kullanılır.",
    "img": [
     "img/d32.webp"
    ],
@@ -403,8 +403,8 @@
   {
    "id": 33,
    "name": "Electro-Voice Evolve 50 Speaker",
-   "desc": "",
-   "desc_tr": "",
+   "desc": "Portable column PA system: column array + 12-inch subwoofer driven by a 1000 W Class-D amplifier. Built-in mixer with 3 inputs and 3-band EQ, Bluetooth streaming and app control.",
+   "desc_tr": "Taşınabilir kolon hoparlör sistemi: kolon + 12 inç subwoofer, 1000 W Class-D amfi. 3 girişli dahili mikser ve 3 bant EQ, Bluetooth ile müzik ve uygulamadan kontrol.",
    "img": [
     "img/d33.webp"
    ],
@@ -415,8 +415,8 @@
   {
    "id": 34,
    "name": "grandMA2 Lighting Console",
-   "desc": "",
-   "desc_tr": "",
+   "desc": "Lighting console from MA Lighting. Programs and controls conventional, moving-head, LED and video fixtures over DMX.",
+   "desc_tr": "MA Lighting'in ışık masası. Konvansiyonel, robot (moving head), LED ve video ışıklarını DMX üzerinden programlar ve kontrol eder.",
    "img": [
     "img/d34.webp"
    ],
@@ -453,8 +453,8 @@
   {
    "id": 37,
    "name": "Midas M32R",
-   "desc": "",
-   "desc_tr": "",
+   "desc": "Compact version of the Midas M32: 40 input channels, 17 motorised faders and 16 Midas PRO mic preamps. Records and plays back up to 32 channels on an SD card without a computer; 32-channel USB audio.",
+   "desc_tr": "Midas M32'nin kompakt versiyonu: 40 giriş kanalı, 17 motorlu fader ve 16 Midas PRO mikrofon preamfisi. Bilgisayarsız SD karta 32 kanala kadar kayıt yapar; 32 kanal USB ses.",
    "img": [
     "img/d37.webp"
    ],
@@ -465,8 +465,8 @@
   {
    "id": 38,
    "name": "Bosch HDP-LW Headphones",
-   "desc": "",
-   "desc_tr": "",
+   "desc": "Lightweight behind-the-neck stereo headphones with a 3.5 mm jack; plugged into the pocket receivers so delegates can listen to the interpretation.",
+   "desc_tr": "Ense arkasından geçen hafif stereo kulaklık, 3,5 mm jaklı; delegeler tercümeyi dinlemek için cep alıcısına takar.",
    "img": [
     "img/d38.webp"
    ],
@@ -491,8 +491,8 @@
   {
    "id": 40,
    "name": "Cisco Catalyst 1300 Switch (24-port)",
-   "desc": "",
-   "desc_tr": "",
+   "desc": "Managed switch: 24 Gigabit Ethernet ports + 4 SFP slots for 1 Gb fiber uplinks. Supports VLANs, QoS (traffic priority), Layer 3 routing between VLANs and stacking up to 8 switches.",
+   "desc_tr": "Yönetilebilir switch: 24 Gigabit Ethernet port + 1 Gb fiber bağlantı için 4 SFP yuvası. VLAN, QoS (trafik önceliği), VLAN'lar arası Layer 3 yönlendirme ve 8 switch'e kadar stack desteği.",
    "img": [
     "img/d40.webp"
    ],
@@ -504,8 +504,8 @@
   {
    "id": 41,
    "name": "NovaStar VX1000 LED Display Controller",
-   "desc": "",
-   "desc_tr": "",
+   "desc": "Video processor and LED sending card in one: feeds LED screen panels through 10 Ethernet outputs, up to about 6.5 million pixels. Three layers with adjustable size, position and priority.",
+   "desc_tr": "Görüntü işlemci ve LED gönderici kart bir arada: LED ekran panellerini 10 Ethernet çıkışıyla besler, yaklaşık 6,5 milyon piksele kadar. Boyutu, konumu ve önceliği ayarlanabilen 3 katman.",
    "img": [
     "img/d41.webp"
    ],
@@ -517,8 +517,8 @@
   {
    "id": 42,
    "name": "Cisco Catalyst C1300 Switch (8-port PoE)",
-   "desc": "",
-   "desc_tr": "",
+   "desc": "Compact managed switch: 8 Gigabit PoE+ ports (67 W total PoE budget) that power devices over the network cable, plus 2 SFP combo uplinks. Managed via web interface, CLI and SNMP.",
+   "desc_tr": "Kompakt yönetilebilir switch: cihazlara ağ kablosu üzerinden güç veren 8 Gigabit PoE+ port (toplam 67 W PoE), 2 SFP combo uplink. Web arayüzü, CLI ve SNMP ile yönetilir.",
    "img": [
     "img/d42.webp"
    ],
