@@ -177,8 +177,8 @@
   {
    "id": 15,
    "name": "XLR Cable",
-   "desc": "Audio cable.",
-   "desc_tr": "Ses kablosu.",
+   "desc": "Balanced audio cable with 3-pin XLR connectors (male on one end, female on the other). The standard cable for microphones, mixers, speakers and other pro audio gear. Because the signal is balanced, interference and hum are cancelled, so it can run long distances without noise. The connector locks in place, so it can't be pulled out by accident.",
+   "desc_tr": "3 pinli XLR konnektörlü balanslı ses kablosu (bir ucu erkek, diğer ucu dişi). Mikrofon, mikser, hoparlör gibi profesyonel ses cihazlarının standart kablosudur. Sinyal balanslı olduğu için parazit ve uğultu birbirini sönümler, bu yüzden uzun mesafede bile gürültü yapmaz. Konnektör kilitlenir, yanlışlıkla çekilip çıkmaz.",
    "img": [
     "img/d15.webp"
    ],
